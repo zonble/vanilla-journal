@@ -1,0 +1,42 @@
+body {
+   font-family: Verdana, Arial, sans-serif;
+   font-size: 10pt;
+   color: #333;
+   background: #FFF;
+   height: 380px;
+}
+
+#main {
+   padding: 10px;
+}
+
+a:link, a:visited {
+   color: #900;
+   text-decoration: none;
+   font-weight: bold;
+}
+
+a:hover {
+   color: #FFF;
+   background: #900;
+}
+
+h2 {
+   border-bottom: 1px solid #CCC;
+}
+
+textarea {
+   width: 90%;
+   background: #FCFCFC;
+   border: 1px solid #CCC;
+   font-family: Courier, monospace;
+}
+
+input:focus, textarea:focus {
+   background: #FFC;
+}
+
+.uploadedimg {
+   float: right;
+   margin: 10px;
+}

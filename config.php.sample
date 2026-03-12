@@ -1,0 +1,53 @@
+<?php
+
+/* If you can not read the chinese text, please change the text
+ * encoding of your prefered text editor in to UTF-8 */
+
+/* 請將這個檔案的檔名改成 config.php */
+
+/* 如果您的網頁上經常出現 header already sent 之類的錯誤，通常是因為
+ * 在這個檔案最前方的 <?php 之前，插入了一些空白字元造成的，請檢查是
+ * 否有不應該存在的空白字元。
+ * 或是，您也可以在設定檔案中，加入一行 error_reporting(0); ，不過，
+ * 加入這一行之後，會關閉所有的 php 除錯訊息。所以，如果您發現了任何
+ * 錯誤，請把這一行刪除，打開除錯訊息。
+ * */
+
+// 請不要刪除這一行。
+// Please do not delete this line below.
+$config = array();
+
+/* 資料庫相關設定
+ *
+ * 請修改這邊的選項，讓系統可以正確連接到您的 MySQL 伺服器。
+ * */
+
+/* Database Settings
+ * Please set the correct setting to connect to your MySQL Database
+ * */
+
+// MYSQL 資料庫使用者
+// The User Nmae of your MySQL Database
+$config['db_user'] = 'user';
+
+// MYSQL 資料庫使用者密碼（可以為空）
+// The Password of your MySQL Database user.
+$config['db_password'] = 'password';
+
+// 使用的 MYSQL 資料庫
+// The Name of your MySQL Database
+$config['db_name'] = 'vj';
+
+// MYSQL 主機（通常是 localhost，不需要修改）
+// The host name of your MySQL Database. (It often should be localhost)
+$config['db_host'] = 'localhost';
+
+// 在資料庫之前的前綴（prefix）字串
+// 如果您在同一個 MySQL 資料庫中打算裝上很多個 Vanilla Journal 的話，
+// 只要修改這個字串，讓不同系統之間使用不同的前綴字元就可以了。
+// The prefix string of the names of the database tables in your MySQL Database
+$config['db_prefix'] = 'vj_';
+
+// 請不要修改以下的項目
+$config['basepath'] = dirname(__FILE__).'/';
+?>

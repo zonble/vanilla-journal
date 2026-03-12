@@ -1,0 +1,324 @@
+body {
+   font-family: Verdana, Arial, Helvetica, sans-serif;
+   font-size: 10pt;
+   font-style: normal;
+   line-height: 1.8em;
+   font-weight: normal;
+   background: #EFEFF0 url(images/bg-q.png);
+}
+
+.normal {
+   line-height: 1.5em;
+}
+
+.important {
+   font-size: 12pt;
+   font-weight: bold;
+   line-height: 1.5em;
+}
+
+.high-important {
+   font-size: 14pt;
+   font-weight: bold;
+   line-height: 1.5em;
+}
+
+.very-important {
+   font-size: 16pt;
+   font-weight: bold;
+   line-height: 1.5em;
+}
+
+.extra-important {
+   font-size: 20pt;
+   font-weight: bold;
+   line-height: 1.5em;
+}
+
+img {
+   border: 0;
+}
+
+a, a:link, a:visited, a:active {
+   color: #933;
+   text-decoration: none;
+}
+
+a:hover {
+   text-decoration: underline;
+}
+
+#rap {
+   width: 760px;
+   margin: 20px auto 20px auto;
+   padding: 10px 0;
+   background: #FFF url(images/bg.png);
+   border: 4px solid #CCC;
+   border-top: 10px solid #CCC;
+   overflow: visible;
+}
+
+#main {
+   margin-top: 0;
+   padding: 0 20px;
+}
+
+#content {
+}
+
+#header {
+   background: transparent url(images/banner.gif) no-repeat bottom left;
+   height: 170px;
+}
+
+#header h1{
+   display: none;
+}
+
+#links {
+   clear: both;
+   text-align: center;
+   padding-top: 20px;
+   font-size: 10pt;
+}
+
+.cover {
+   padding: 10px;
+}
+
+.cover-tagline {
+   margin: 0;
+   font-size: 10pt;
+}
+
+.cover img {
+   border: 1px solid #AAA;
+}
+
+#body {
+   padding: 10px;
+}
+
+#date{
+   display: block;
+   margin-right: 20px;
+   margin-left: 400px;
+   font-weight: bold;
+   font-size: 10pt;
+   text-align: right;
+   color: #FFF;
+   padding-right: 1em;
+   background: #333;
+}
+
+#date p{
+   display: inline;
+   margin-left: 15px;
+}
+
+.volume-topic {
+   margin: 0 0 10px 0;
+}
+
+.cat-title {
+   font-size: 10pt;
+   font-weight: bold;
+   color: #FFF;
+   background: #666 url(images/bg-b.gif);
+   padding: 1px 10px 0 10px;
+   margin: 10px 0 5px 0;
+   clear: right;
+}
+
+.cat-img img {
+   border: 1px solid #333;
+} 
+
+.cat-img {
+   padding: 10px;
+}
+
+#menu {
+   margin-bottom: 20px;
+   font-size: 9pt;
+   padding-right: 20px;
+   text-align: right;
+}
+
+#menu a, #links a{
+   color: #666;
+   font-weight: bold;
+   text-decoration: none;
+}
+
+#menu a:hover, #links a:hover {
+   color: #000;
+   text-decoration: underline;
+}
+
+.sep {
+   margin: 0 4px;
+   font-size: 6pt;
+}
+
+#credit{
+   text-align: center;
+   line-height: 1.3em;
+   font-size: 10pt;
+   color: #666;
+}
+
+#credit p{
+   margin:0;
+}
+
+fieldset {
+   background: #FFF;
+   margin-right: 15px;
+   margin-bottom: 10px;
+}
+
+legend {
+   font-weight: bold;
+   color: #000;
+   font-size: 10pt;
+}
+
+.hidden {
+   display:  none;
+}
+
+.volume-topic-desc {
+   font-size: 10pt;
+   line-height: 1.6em;
+}
+
+.photolist {
+   width: 120px;
+   float: right;
+}
+
+.photoalbum {
+   width: 750px;
+}
+
+.photoalbum div a{
+   border: 0;
+   padding: 0;
+}
+
+.photoalbum div {
+   float: left;
+   height: 135px;
+   border: 1px solid #CCC;
+   margin-right: 8px;
+   margin-bottom: 10px;
+   background: #FCFCFC;
+}
+
+.volume-topic-desc {
+   margin-top: 10px;
+}
+
+.sq {
+   margin: 10px;
+}
+
+.lbOn, .sq {
+   display: block;
+   height: 100px;
+   margin: 5px;
+   float: left;
+   width: 100px;
+   border: 1px solid #CCC;
+   text-align: center;
+   padding: 5px;
+   font-size: 9pt;
+   background: #FCFCFC;
+}
+
+.lbOn:hover {
+}
+
+.lbOn:hover img {
+   border: 1px solid #900;
+}
+
+.photo img {
+   border: 0;
+}
+
+.tag {
+   font-weight: bold;
+   color: #000;
+   border-bottom: 1px solid #000;
+   font-size: 10pt;
+}
+
+h2 {
+   color: #600;
+   line-height: 1.5em;
+}
+
+.byline {
+   margin: 5px 0 10px 30px;
+   font-size: 10pt;
+}
+
+.cutline {
+   font-size: 10pt;
+   text-align: center;
+   margin: 0;
+   color: 633;
+}
+
+.post-body {
+   width: 550px;
+   line-height: 2em;
+   font-size: 11pt;
+   padding: 10px;
+   margin-bottom: 10px;
+}
+
+ul {
+   font-size: 10pt;
+   line-height: 1.8em;
+}
+
+ul li {
+   margin: 5px 0;
+}
+
+.right {
+   display: block;
+   margin: 10px;
+}
+
+.linklist {
+   font-size: 11pt;
+}
+
+.left {
+   font-size: 11pt;
+}
+
+table {
+   margin: 10px auto;
+}
+
+th {
+   color: #FFF;
+   background: #666 url(images/bg-b.gif);
+}
+
+td {
+   padding: 2px 5px;
+}
+
+.search_result {
+   width: 90%;
+}
+
+.search_tool, .search_check {
+   text-align: center;
+}
