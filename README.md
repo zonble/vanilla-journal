@@ -49,6 +49,17 @@ Vanilla Journal 旨在讓使用者能夠輕鬆管理電子報的期數、訂閱�
 - **後台管理 (Admin)**：所有管理者相關的功能都被實體隔離在 `vj-admin/` 資料夾下。
 - **資料庫安裝 (Installation)**：沒有 Migration 腳本，安裝是透過瀏覽器執行 `install/` 目錄下的腳本（`vjsql.php`），直接將預設的結構匯入資料庫中。
 
+## 給現代開發者的文化衝擊 (Culture Shocks)
+
+如果你是習慣 Laravel, Symfony, Spring Boot 或 React/Vue 的開發者，在閱讀這份原始碼時可能會感到以下「衝擊」，這些都是 2000 年代 Web 開發的典型縮影：
+
+- **滿天飛的 `global` 變數**：沒有 Dependency Injection (DI)。為了在函數或類別中使用資料庫連線，開發者會直接使用 `global $vjdb;`。這在當時是共享資源最快（但也最難維護）的方式。
+- **物理路由 (Physical Routing)**：沒有 `routes/web.php` 或虛擬路由。點擊註冊按鈕就是真的發送請求給 `signup.php` 檔案。所有的 URL 結構都與檔案系統路徑完全對應。
+- **沒有自動載入 (No Autoloading)**：在 PSR-4 出現之前，所有的類別與函數庫都必須手動 `include` 或 `require`。漏掉一行 `include` 就會導致程式崩潰。
+- **PHP 就是樣板引擎**：沒有 Blade 或 Twig。邏輯與 HTML 標籤高度耦合，你會看到大量在 HTML 中穿插 `<?php ... ?>` 的寫法，這在當時被視為 PHP 的核心優勢。
+- **資安防護全靠自覺**：沒有內建的 CSRF 防護或自動的 SQL Injection 過濾（當時沒有 ORM）。開發者必須手動對每一個 `$_GET` 或 `$_POST` 參數進行處理，安全性完全取決於工程師的細心程度。
+- **全域超變數的直接存取**：程式碼中會直接讀取 `$_SESSION` 或 `$_SERVER`，而不會透過 Request 物件進行封裝。
+
 ## 安裝與執行 (Installation)
 
 在 2000 年代，部署 PHP 專案的方式通常非常直覺（也相對原始）。若要重現這個系統，請遵循以下步驟：
