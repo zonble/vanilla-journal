@@ -42,7 +42,7 @@ Vanilla Journal 旨在讓使用者能夠輕鬆管理電子報的期數、訂閱�
 
 ## 系統架構導覽 (Architecture Mapping)
 
-如果你習慣了現代的 MVC 框架或單一入口（Single Entry Point）架構，這裡是一份給現代開發者的導覽圖，幫助你理解當時的架構思維：
+本專案的底層設計與目錄結構，在很大程度上**參考了早期 WordPress 的架構思維**（這也是為什麼會有類似 `vj-admin/`、`vj-include/` 這樣的命名與拆分方式）。如果你習慣了現代的 MVC 框架或單一入口（Single Entry Point）架構，這裡是一份給現代開發者的導覽圖，幫助你理解當時的開發模式：
 
 - **路由 (Routing)**：沒有前端路由或 `index.php` 統一轉發。使用者點擊什麼功能，就直接瀏覽對應的 PHP 檔案（例如：訪問首頁就是 `index.php`，閱讀文章是 `read.php`，註冊是 `signup.php`）。
 - **設定檔 (Configuration)**：手動將 `config.php.sample` 複製為 `config.php` 並填入資料庫帳密。當時還沒有 `.env` 環境變數檔案的概念。
