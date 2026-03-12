@@ -93,9 +93,10 @@
 	       $cat_desc = $cat['CAT_DESC'];
 	       admin_header("修改單元設定");
 	    ?>
-	    <h2>修改單元</h2>
-	    <p>請問您要將單元的名稱修改為？<p>
-	    <?php
+<h2>修改單元</h2>
+<p>請問您要將單元的名稱修改為？
+<p>
+    <?php
 	       cats_form($cat_name, $cat_desc, "修改單元", "update", $id);
 	    } else {
 	       $str = "<h2>錯誤</h2>\n";
@@ -129,15 +130,16 @@
 ?>
 
 <div class="wrap">
-<h2>文章單元設定</h2>
-<p>目前資料庫中的文章單元表列如下，您可以修改、刪除或新增文章單元。</p>
-<?php cat_table(); ?>
+    <h2>文章單元設定</h2>
+    <p>目前資料庫中的文章單元表列如下，您可以修改、刪除或新增文章單元。</p>
+    <?php cat_table(); ?>
 </div>
 
 <div class="wrap">
-<h2>新增單元</h2>
-<p>請問您要新增的單元是？<p>
-<?php cats_form("", "", "新增單元", "add-cat"); ?>
+    <h2>新增單元</h2>
+    <p>請問您要新增的單元是？
+    <p>
+        <?php cats_form("", "", "新增單元", "add-cat"); ?>
 </div>
 
 <?php 

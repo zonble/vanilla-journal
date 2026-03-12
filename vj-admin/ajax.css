@@ -1,42 +1,44 @@
 body {
-   font-family: Verdana, Arial, sans-serif;
-   font-size: 10pt;
-   color: #333;
-   background: #FFF;
-   height: 380px;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 10pt;
+  color: #333;
+  background: #fff;
+  height: 380px;
 }
 
 #main {
-   padding: 10px;
+  padding: 10px;
 }
 
-a:link, a:visited {
-   color: #900;
-   text-decoration: none;
-   font-weight: bold;
+a:link,
+a:visited {
+  color: #900;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 a:hover {
-   color: #FFF;
-   background: #900;
+  color: #fff;
+  background: #900;
 }
 
 h2 {
-   border-bottom: 1px solid #CCC;
+  border-bottom: 1px solid #ccc;
 }
 
 textarea {
-   width: 90%;
-   background: #FCFCFC;
-   border: 1px solid #CCC;
-   font-family: Courier, monospace;
+  width: 90%;
+  background: #fcfcfc;
+  border: 1px solid #ccc;
+  font-family: Courier, monospace;
 }
 
-input:focus, textarea:focus {
-   background: #FFC;
+input:focus,
+textarea:focus {
+  background: #ffc;
 }
 
 .uploadedimg {
-   float: right;
-   margin: 10px;
+  float: right;
+  margin: 10px;
 }

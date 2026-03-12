@@ -69,12 +69,14 @@ if (!function_exists('mime_content_type')) {
 	 echo "<p>您所指定的檔案不是文字檔案格式，無法編輯！</p>";
       } else {
 ?>
-   <h2>編輯網頁範本檔案</h2>
-   <form action="file-edit.php" method="post">
-   <p><strong>檔案名稱</strong>： <?php echo $page ?> 、<strong>檔案類型</strong>：<?php echo mime_content_type($filename) ?></p>
-   <input type="hidden" value="<?php echo $page; ?>" name="page" id="page" /> 
-   <textarea id="content" name="content" style="padding: 5px; width: 90%; height: 300px; font-size: 12pt; font-family: mono-space;"><?php echo $content; ?></textarea> <br />
-<?php
+<h2>編輯網頁範本檔案</h2>
+<form action="file-edit.php" method="post">
+    <p><strong>檔案名稱</strong>： <?php echo $page ?> 、<strong>檔案類型</strong>：<?php echo mime_content_type($filename) ?></p>
+    <input type="hidden" value="<?php echo $page; ?>" name="page" id="page" />
+    <textarea id="content" name="content"
+        style="padding: 5px; width: 90%; height: 300px; font-size: 12pt; font-family: mono-space;"><?php echo $content; ?></textarea>
+    <br />
+    <?php
 	 if(is_dir($filename)) {
 	    echo "<p>對不起，您所指定的檔名為目錄，無法編輯！</p>";
 	 } else if (!is_writable($filename)) {
@@ -82,30 +84,30 @@ if (!function_exists('mime_content_type')) {
 	    echo "<p>請將檔案設定為可以寫入，例如在 Linux 等作業系統下，請在命令列下輸入 <code>chmod 666 ".$page."</code>。</p>";
 	 } else {
 ?>
-   <input type="submit" id="submit" name="submit" value="儲存檔案！"/>
-   <input type="hidden" name="action" value="edit"/>
-   </form>
+    <input type="submit" id="submit" name="submit" value="儲存檔案！" />
+    <input type="hidden" name="action" value="edit" />
+</form>
 <?    }
       }
    } else { 
 ?>
 
-      <h2>編輯網頁範本</h2>
-      <div id="filetool" class="tool">
-      您可以：
-      <a href="#theme" onclick="return vj.file.show_area('file_theme');">選用佈景主題</a> | 
-      <a href="#edit" onclick="return vj.file.show_area('file_edit');">編輯網頁範本檔案</a>
-      </div>
-      <div id="file_theme" class="wrap">
-      <?php if($msg) { 
+<h2>編輯網頁範本</h2>
+<div id="filetool" class="tool">
+    您可以：
+    <a href="#theme" onclick="return vj.file.show_area('file_theme');">選用佈景主題</a> |
+    <a href="#edit" onclick="return vj.file.show_area('file_edit');">編輯網頁範本檔案</a>
+</div>
+<div id="file_theme" class="wrap">
+    <?php if($msg) { 
 	 echo '<div id="msg">'.$msg.'</div>';
       }?>
-      
-      <a name="theme"></a>
-      <h3>選用佈景主題</h3>
-      <p>請選擇您想要使用的佈景主題，在選定之後，請按下「選用佈景主題」按鈕。</p>
-      <p>目前在系統中可以選用的佈景主題如下：</p>
-<?php
+
+    <a name="theme"></a>
+    <h3>選用佈景主題</h3>
+    <p>請選擇您想要使用的佈景主題，在選定之後，請按下「選用佈景主題」按鈕。</p>
+    <p>目前在系統中可以選用的佈景主題如下：</p>
+    <?php
       function parse_about($file="") {
 	 $about = array();
 	 $content = file_get_contents($file);
@@ -188,14 +190,15 @@ if (!function_exists('mime_content_type')) {
       echo "</p>";
       echo "</form>";
 ?>
-      </div>
-      <div id="file_edit" class="wrap">
-      <a name="edit"></a>
-      <h3>編輯網頁範本檔案</h3>
-      <p>您目前選用的佈景主題為 <strong><?php echo $config['theme'] ?></strong>，您可以透過網頁介面，編輯這個佈景主題中所使用的 PHP 程式檔案以及 CSS 樣式表。</p>
-      <p>在編輯時請注意：副檔名為 PHP 的檔案，也是 PHP 程式，如果您不小心改錯了內容，很有可能因為語法錯誤而造成無法執行，因此，在編輯時請務必小心。此外，您的佈景主題目錄、以及目錄中的檔案必須有允許寫入的權限，否則系統無法寫入您編輯過的內容。</p>
-      <p>請點選以下頁面，進行編輯：</p>
-<?php
+</div>
+<div id="file_edit" class="wrap">
+    <a name="edit"></a>
+    <h3>編輯網頁範本檔案</h3>
+    <p>您目前選用的佈景主題為 <strong><?php echo $config['theme'] ?></strong>，您可以透過網頁介面，編輯這個佈景主題中所使用的 PHP 程式檔案以及 CSS 樣式表。</p>
+    <p>在編輯時請注意：副檔名為 PHP 的檔案，也是 PHP
+        程式，如果您不小心改錯了內容，很有可能因為語法錯誤而造成無法執行，因此，在編輯時請務必小心。此外，您的佈景主題目錄、以及目錄中的檔案必須有允許寫入的權限，否則系統無法寫入您編輯過的內容。</p>
+    <p>請點選以下頁面，進行編輯：</p>
+    <?php
 
       $filenames = array();
       $filename['toc.php'] = "各期文章列表索引頁";

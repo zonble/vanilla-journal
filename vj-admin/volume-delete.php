@@ -82,17 +82,17 @@
 ?>
 
 <div class="wrap">
-<h2>刪除：《<?php info('title') ?>》第  <?php echo $volinfo['ALIAS']; ?> 期  </h2>
-<p>您確定要刪除《<?php info('title') ?>》第  <?php echo $volinfo['ALIAS']; ?> 期嗎？</p>
-<p>如果刪除的話，這一期電子報的所有文章、圖片，也會隨之一同刪除。</p>
-<form method="post" action="volume-delete.php" />
-<input type="hidden" name="id" value="<?php echo $volinfo['ID']; ?>" />
-<input type="hidden" name="action" value="delete" />
-<?php $refer = $_SERVER['HTTP_REFERER'];?>
-<input type="hidden" name="refer" value="<?php echo $refer;?>" /></p>
-<p><input type="submit" value="確定刪除" /></p>
-<p><a href="<?php echo $refer?>">不刪除，回到前一頁</a></p>
-</form>
+    <h2>刪除：《<?php info('title') ?>》第 <?php echo $volinfo['ALIAS']; ?> 期 </h2>
+    <p>您確定要刪除《<?php info('title') ?>》第 <?php echo $volinfo['ALIAS']; ?> 期嗎？</p>
+    <p>如果刪除的話，這一期電子報的所有文章、圖片，也會隨之一同刪除。</p>
+    <form method="post" action="volume-delete.php" />
+    <input type="hidden" name="id" value="<?php echo $volinfo['ID']; ?>" />
+    <input type="hidden" name="action" value="delete" />
+    <?php $refer = $_SERVER['HTTP_REFERER'];?>
+    <input type="hidden" name="refer" value="<?php echo $refer;?>" /></p>
+    <p><input type="submit" value="確定刪除" /></p>
+    <p><a href="<?php echo $refer?>">不刪除，回到前一頁</a></p>
+    </form>
 </div>
 
 <?php

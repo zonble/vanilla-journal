@@ -34,11 +34,11 @@
    if($alias) {
 ?>
 <div class="wrap">
-<h2>新增《<?php info('title') ?>》第 <?php echo $alias ?> 期的文章內容</h2>
+    <h2>新增《<?php info('title') ?>》第 <?php echo $alias ?> 期的文章內容</h2>
 
-<p>注意：您必須要先將這份文件新增到資料庫之後，才可以使用圖片以及附件上傳功能。</p>
+    <p>注意：您必須要先將這份文件新增到資料庫之後，才可以使用圖片以及附件上傳功能。</p>
 
-<?php
+    <?php
    if($err_str) {
 	 echo "<div id=\"msg\">".$err_str."</div>";
    }
@@ -46,7 +46,7 @@
    $post_status = "add";
    include "post-form.php";
 ?>
-<br clear="all" />
+    <br clear="all" />
 </div>
 
 <?php

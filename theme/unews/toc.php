@@ -18,18 +18,18 @@
    }
 ?>
 <div id="paper">
-<fieldset class="featured">
-<legend class="volume-topic-tag">本期主題</legend>
-<?php volume_topic('<h2 class="volume-topic">', '</h2>', 1);?>
-<?php cover(80) ?>
-<br />
-<?php volume_topic_desc('<div class="volume-topic-desc">', '</div>');?>
-<?php cat_list(1) ?>
-<h2>校園話題</h2>
-<?php cat_list(2) ?>
-</fieldset>
-<div class="toc">
-<?php volume_list_by_cat($excepts, 1, "float: right; padding-bottom: 10px;", 0, 1); ?>
-</div> 
-<br clear="all" />
+    <fieldset class="featured">
+        <legend class="volume-topic-tag">本期主題</legend>
+        <?php volume_topic('<h2 class="volume-topic">', '</h2>', 1);?>
+        <?php cover(80) ?>
+        <br />
+        <?php volume_topic_desc('<div class="volume-topic-desc">', '</div>');?>
+        <?php cat_list(1) ?>
+        <h2>校園話題</h2>
+        <?php cat_list(2) ?>
+    </fieldset>
+    <div class="toc">
+        <?php volume_list_by_cat($excepts, 1, "float: right; padding-bottom: 10px;", 0, 1); ?>
+    </div>
+    <br clear="all" />
 </div>

@@ -49,12 +49,15 @@
 <input type="hidden" name="id" value="<?php echo $subscriber['ID']; ?>" />
 <input type="hidden" name="action" value="delete" />
 <?php $refer = $_SERVER['HTTP_REFERER'];?>
-<input type="hidden" name="refer" value="<?php echo $refer;?>" /></td></p>
-<p><input type="submit" value="確定刪除" /></td></p>
+<input type="hidden" name="refer" value="<?php echo $refer;?>" /></td>
+</p>
+<p><input type="submit" value="確定刪除" /></td>
+</p>
 <?php if(!$ajax) { ?>
 <p><a href="<?php echo $refer?>">不刪除，回到前一頁</a></p>
 <?php } else { ?>
-<input type="hidden" name="ajax" value="1" /></td></p>
+<input type="hidden" name="ajax" value="1" /></td>
+</p>
 <?php } ?>
 </form>
 </div>

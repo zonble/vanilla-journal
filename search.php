@@ -3,27 +3,25 @@
    $vj->thispage = "search";
    vj_header("資料搜尋");
 ?>
-   <script type="text/javascript">
+<script type="text/javascript">
+function checkall(input1, type) {
+    var objForm = document.forms[input1];
+    var objLen = objForm.length;
+    for (var iCount = 0; iCount < objLen; iCount++) {
+        if (type == true) {
+            if (objForm.elements[iCount].type == "checkbox") {
+                objForm.elements[iCount].checked = true;
+            }
+        } else {
+            if (objForm.elements[iCount].type == "checkbox") {
+                objForm.elements[iCount].checked = false;
+            }
+        }
+    }
+}
+</script>
 
-   function checkall(input1, type) {
-      var objForm = document.forms[input1];
-      var objLen = objForm.length;
-      for (var iCount = 0; iCount < objLen; iCount++) {
-	 if (type == true) {
-	    if (objForm.elements[iCount].type == "checkbox") {
-	       objForm.elements[iCount].checked = true;
-	    }
-	 }
-	 else {
-	    if (objForm.elements[iCount].type == "checkbox") {
-	       objForm.elements[iCount].checked = false;
-	    }
-	 }
-      }
-   }
-   </script>
-
-   <h2>資料搜尋</h2>
+<h2>資料搜尋</h2>
 <?php
 
    $keyword = $_POST['keyword'];
@@ -85,20 +83,20 @@
 <h3>您的搜尋條件：</h3>
 <p>請在下方表單中，輸入您要搜尋的關鍵字，或是搜尋找出某位作者的文章。</p>
 <table>
-<form method="post" action="search.php">
-<tr>
-<td><label for="author">作者：</label></td>
-<td><input size="30" type="text" id="author" name="author" value="<?php echo $author; ?>" /></td>
-<td><input type="submit" name="submit" style="width: 14em;" value="根據作者檢索" /></td>
-</form>
-</tr>
+    <form method="post" action="search.php">
+        <tr>
+            <td><label for="author">作者：</label></td>
+            <td><input size="30" type="text" id="author" name="author" value="<?php echo $author; ?>" /></td>
+            <td><input type="submit" name="submit" style="width: 14em;" value="根據作者檢索" /></td>
+    </form>
+    </tr>
 
-<tr>
-<form method="post" action="search.php">
-<td><label for="keyword">關鍵字：</label></td>
-<td><input size="30" type="text" id="keyword" name="keyword" value="<?php echo $keyword; ?>" /></td>
-<td><input type="submit" name="submit" style="width: 14em;" value="根據關鍵字檢索" /></td>
-</tr>
-</form>
+    <tr>
+        <form method="post" action="search.php">
+            <td><label for="keyword">關鍵字：</label></td>
+            <td><input size="30" type="text" id="keyword" name="keyword" value="<?php echo $keyword; ?>" /></td>
+            <td><input type="submit" name="submit" style="width: 14em;" value="根據關鍵字檢索" /></td>
+    </tr>
+    </form>
 </table>
 <?php vj_footer(); ?>

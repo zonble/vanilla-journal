@@ -72,18 +72,18 @@
    ?>
 
 <div class="wrap">
-<h2>匯入訂戶電子郵件信箱</h2>
-<div class="tool">
-新增帳戶：
-<a href="subscriber-add.php" title="單一輸入">單一輸入</a>
-<a>大量輸入</a>
-</div>
-<p>請在下方輸入您要新增的訂戶電子郵件信箱，每一行輸入一個電子郵件信箱。</p>
-<form method="post">
-<textarea name="emails" id="emails" rows="10" style="width: 90%; margin: 10px;"></textarea><br />
-<input type="hidden" name="action" value="add-email" />
-<input type="submit" name="submit" id="submit" value="匯入電子郵件信箱" />
-</form>
+    <h2>匯入訂戶電子郵件信箱</h2>
+    <div class="tool">
+        新增帳戶：
+        <a href="subscriber-add.php" title="單一輸入">單一輸入</a>
+        <a>大量輸入</a>
+    </div>
+    <p>請在下方輸入您要新增的訂戶電子郵件信箱，每一行輸入一個電子郵件信箱。</p>
+    <form method="post">
+        <textarea name="emails" id="emails" rows="10" style="width: 90%; margin: 10px;"></textarea><br />
+        <input type="hidden" name="action" value="add-email" />
+        <input type="submit" name="submit" id="submit" value="匯入電子郵件信箱" />
+    </form>
 </div>
 
 <?php 

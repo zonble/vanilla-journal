@@ -35,4 +35,4 @@ function image($id) {
 <h3>當期期刊主題圖片</h3>
 <?php image($id); ?>
 <div class="submit">
-<input type="submit" value="設定完成" id="vol-submit" />
+    <input type="submit" value="設定完成" id="vol-submit" />

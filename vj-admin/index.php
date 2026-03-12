@@ -9,22 +9,22 @@
    $newnotpublished = $vjdb->get_row($query, ARRAY_A);
 ?>
 <div class="wrap">
-<h2>Welcome, Willkommen, 歡迎光臨！</h2>
-<p>歡迎進入 Vanilla Journal 的系統管理介面。</p>
-<p>在這個系統中，您除了可以透過瀏覽器，在線上輸入文稿、上傳圖片，輕鬆建立線上的期刊，更可以透過電子郵件，將您的線上期刊的當期索引目錄，寄送給您的訂戶，讓他們在打開信箱的時候，就可以看到線上期刊的內容。</p>
-<div style="width: 40%; float: right; padding: 10px; border: 1px solid #CCC; font-size: 10pt;">
-<h3>不知道怎麼使用嗎？</h3>
-<p>如果您才剛開始使用這個系統，還不熟悉功能，您可以先閱讀<a href="help.php">輔助說明</a>。
-</div>
-<h3>請問您現在想要做些什麼呢？</h3>
-<p>您現在可以：</p>
-<ul>
-<li>開始準備發行一期新的期刊</li>
-<ul>
-<li>請點選<a href="volume-add.php">新增一期期刊</a></li>
-</ul>
-<?php if($withvolumes) { ?>
-<?php
+    <h2>Welcome, Willkommen, 歡迎光臨！</h2>
+    <p>歡迎進入 Vanilla Journal 的系統管理介面。</p>
+    <p>在這個系統中，您除了可以透過瀏覽器，在線上輸入文稿、上傳圖片，輕鬆建立線上的期刊，更可以透過電子郵件，將您的線上期刊的當期索引目錄，寄送給您的訂戶，讓他們在打開信箱的時候，就可以看到線上期刊的內容。</p>
+    <div style="width: 40%; float: right; padding: 10px; border: 1px solid #CCC; font-size: 10pt;">
+        <h3>不知道怎麼使用嗎？</h3>
+        <p>如果您才剛開始使用這個系統，還不熟悉功能，您可以先閱讀<a href="help.php">輔助說明</a>。
+    </div>
+    <h3>請問您現在想要做些什麼呢？</h3>
+    <p>您現在可以：</p>
+    <ul>
+        <li>開始準備發行一期新的期刊</li>
+        <ul>
+            <li>請點選<a href="volume-add.php">新增一期期刊</a></li>
+        </ul>
+        <?php if($withvolumes) { ?>
+        <?php
    if($newnotpublished) {
       echo "<li>管理最新一期尚未上線的期刊：<strong>第 ".$newnotpublished['ALIAS']." 期</strong></li>";
       echo "<ul>";
@@ -46,7 +46,7 @@
       echo "</ul>";
    }
 } ?>
-<?php 
+        <?php 
    $query = "SELECT ID, TOPIC FROM $vjdb->post ORDER BY POST_DATE DESC LIMIT 5";
    $posts = $vjdb->get_results($query, ARRAY_A);
    if($posts) {
@@ -62,8 +62,8 @@
       echo "</ul>";
    }
 ?>
-</ul>
+    </ul>
 
-<?php 
+    <?php 
    admin_footer();
 ?>

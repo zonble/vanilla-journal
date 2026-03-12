@@ -15,21 +15,23 @@
 <h3>在學術著作上引用這篇文章</h3>
 <p>如果您想要在學術著作上引用這篇文章，可以使用以下書目格式：</p>
 <ul>
-<li><strong><abbr title="American Psychological Association">APA</abbr> 格式</strong>：<br /><small><?php post_cite_apa(); ?></small></li>
-<li><strong><abbr title="Modern Language Association">MLA</abbr> 格式</strong>：<br /><small><?php post_cite_mla(); ?></small></li>
+<li><strong><abbr title="American Psychological Association">APA</abbr> 格式</strong>：<br /><small><?php post_cite_apa(); ?></small>
+</li>
+<li><strong><abbr title="Modern Language Association">MLA</abbr>
+        格式</strong>：<br /><small><?php post_cite_mla(); ?></small></li>
 <li><strong>EndNote 匯入格式</strong>：<a href="<?php post_endnotelink(); ?>" title="下載 EndNote 格式匯入檔案">下載</a><br />
-   <small>下載後請在 EndNote 軟體中選擇「File」→ 「Import」功能匯入，並且在開啟檔案對話視窗中，將文字編碼設定為 Unicode（UTF-8），便可以在 EndNote 中使用這篇文章的資料。</small>
-   </li>
+    <small>下載後請在 EndNote 軟體中選擇「File」→ 「Import」功能匯入，並且在開啟檔案對話視窗中，將文字編碼設定為 Unicode（UTF-8），便可以在 EndNote 中使用這篇文章的資料。</small>
+</li>
 </ul>
 </div> */ ?>
 <div id="footer">
-<?php echo vjinfo('credit'); ?>
+    <?php echo vjinfo('credit'); ?>
 </div>
 </div>
 
 <div id="sidebar">
-<div class="featurebox">
-<h3>回到期刊目錄頁</h3>
-<p><?php post_backlink(); ?></p>
-</div>
-<?php realtive_link("<div class=\"featurebox\"><h3>本期同分類其他文章</h3>", "</div>") ?>
+    <div class="featurebox">
+        <h3>回到期刊目錄頁</h3>
+        <p><?php post_backlink(); ?></p>
+    </div>
+    <?php realtive_link("<div class=\"featurebox\"><h3>本期同分類其他文章</h3>", "</div>") ?>

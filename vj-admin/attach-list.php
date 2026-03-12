@@ -11,7 +11,7 @@ if($_GET['ajax']) {
 } ?>
 <h3>附件管理<a name="part-3"></a></h3>
 <p>您已經上傳的附件如下，
-<?php
+    <?php
 $uploadpath = $config['attach_path'];
 if(is_dir($uploadpath) && is_writable($uploadpath)) {
    echo "您也可以：<a id=\"upload-attach\" href=\"attach.php?postid=$id\">上傳屬於這篇文章的附件</a>。</p>";
@@ -20,6 +20,6 @@ if(is_dir($uploadpath) && is_writable($uploadpath)) {
 }
 ?>
 <form action="">
-<?php attach_table($id); ?>
-<input type="hidden" name="postid" value="<?php echo $id ?>" />
+    <?php attach_table($id); ?>
+    <input type="hidden" name="postid" value="<?php echo $id ?>" />
 </form>

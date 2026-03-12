@@ -4,17 +4,18 @@
 
    function signform($email, $name){
    ?>
-   <form method="post">
-   <p>
-   <label for="email">信箱：</label><input id="email" name="email" value="<?php echo $email ?>" size="50"/><br />
-   <label>姓名：</label><input id="name" name="name" value="<?php echo $name ?>"/>（可不填）</p>
-   <p>
-   <input type="submit" name="submit" value="訂閱"/>
-   <input type="submit" name="submit" value="退訂"/>
-   <input type="submit" name="submit" value="重新寄出認證信"/>
-   </p>
-   </form>
-   <?php
+<form method="post">
+    <p>
+        <label for="email">信箱：</label><input id="email" name="email" value="<?php echo $email ?>" size="50" /><br />
+        <label>姓名：</label><input id="name" name="name" value="<?php echo $name ?>" />（可不填）
+    </p>
+    <p>
+        <input type="submit" name="submit" value="訂閱" />
+        <input type="submit" name="submit" value="退訂" />
+        <input type="submit" name="submit" value="重新寄出認證信" />
+    </p>
+</form>
+<?php
    }
 
    function addbody($hash, $id) {

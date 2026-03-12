@@ -52,16 +52,16 @@
 	 echo "<a name=\"part-1\"></a>";
 	 include "post-form.php";
 ?>
-   <a name="images"></a>
-   <div id="post_images"> 
-   <?php include_once("upload-list.php") ; ?>
-   </div>
-   <a name="attach"></a>
-   <div id="post_attach"> 
-   <?php include_once("attach-list.php") ; ?>
-   </div>
-   </div>
-      <?
+<a name="images"></a>
+<div id="post_images">
+    <?php include_once("upload-list.php") ; ?>
+</div>
+<a name="attach"></a>
+<div id="post_attach">
+    <?php include_once("attach-list.php") ; ?>
+</div>
+</div>
+<?
       }
    }
    admin_footer();

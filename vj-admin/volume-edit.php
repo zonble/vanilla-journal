@@ -17,19 +17,19 @@
 ?>
 
 <div class="wrap">
-<?php $pagetitle ="管理《".vjinfo('title')."》第 ".$volinfo['ALIAS']." 期的文章"; ?>
-<h2><?php echo $pagetitle ?></h2>
+    <?php $pagetitle ="管理《".vjinfo('title')."》第 ".$volinfo['ALIAS']." 期的文章"; ?>
+    <h2><?php echo $pagetitle ?></h2>
 
-<div class="tool">
-您也可以：
-<a href="volume-info.php?id=<?php echo $volume?>" onclick="return vj.util.exitconfirm();">設定本期期刊</a> |
-<a href="post-add.php?volume=<?php echo $volume?>" onclick="return vj.util.exitconfirm();">增加本期內容</a> | 
-<a href="import.php?volume=<?php echo $volume?>" onclick="return vj.util.exitconfirm();">從 RSS 匯入文章到本期中</a> | 
-<a href="../index.php?volume=<?php echo $volume?>" id="viewpage">查看本期網頁</a> |
-<a href="volumes.php" onclick="return vj.util.exitconfirm();">回到期數文章總覽</a>
-</div>
+    <div class="tool">
+        您也可以：
+        <a href="volume-info.php?id=<?php echo $volume?>" onclick="return vj.util.exitconfirm();">設定本期期刊</a> |
+        <a href="post-add.php?volume=<?php echo $volume?>" onclick="return vj.util.exitconfirm();">增加本期內容</a> |
+        <a href="import.php?volume=<?php echo $volume?>" onclick="return vj.util.exitconfirm();">從 RSS 匯入文章到本期中</a> |
+        <a href="../index.php?volume=<?php echo $volume?>" id="viewpage">查看本期網頁</a> |
+        <a href="volumes.php" onclick="return vj.util.exitconfirm();">回到期數文章總覽</a>
+    </div>
 
-<?php
+    <?php
    if($_POST['submit']) {
       foreach($_POST as $key => $value){
 	 if(strstr($key, 'order-')) {
@@ -45,17 +45,19 @@
    }
 ?>
 
-<form action="volume-edit.php?volume=<?php echo $volume ?>" method="post">
-<p>本期文章列表如下。</p>
-   <script type="text/javascript">
-   document.write('<p class="support">您可以在此調整文章的次序，除了用下拉選單調整外，還可以直接使用拖拉的方式調整，（不過，某些瀏覽器—例如 MacOS X 上的 Safari 瀏覽器，目前還無法正確使用拖拉功能）；調整完之後請記得按一下「更新文章排列順序」。</p>');
-   </script>
-<p><input type="submit" name="submit" value="更新文章排列順序" /></p>
-<input type="hidden" name="volume" value="<?php echo $volume ?>" />
-<?php
+    <form action="volume-edit.php?volume=<?php echo $volume ?>" method="post">
+        <p>本期文章列表如下。</p>
+        <script type="text/javascript">
+        document.write(
+            '<p class="support">您可以在此調整文章的次序，除了用下拉選單調整外，還可以直接使用拖拉的方式調整，（不過，某些瀏覽器—例如 MacOS X 上的 Safari 瀏覽器，目前還無法正確使用拖拉功能）；調整完之後請記得按一下「更新文章排列順序」。</p>'
+            );
+        </script>
+        <p><input type="submit" name="submit" value="更新文章排列順序" /></p>
+        <input type="hidden" name="volume" value="<?php echo $volume ?>" />
+        <?php
    post_table($volume);
 ?>
-</form>
+    </form>
 </div>
 
 <?php 

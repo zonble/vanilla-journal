@@ -63,21 +63,21 @@
       admin_header($pagetitle);
    ?>
 
-   <div class="wrap">
-<h2>刪除文章：〈<?php echo $post->post_topic; ?>〉 </h2>
-<p>您確定要刪除〈<?php echo $post->post_topic?>〉這篇文章嗎？</p>
-   <p>如果刪除的話，這篇文章的所有圖片、附件，也會隨之一同刪除。</p>
-   <form method="post" action="post-delete.php" />
-<input type="hidden" name="id" value="<?php echo $post->post_id ?>" />
-   <input type="hidden" name="action" value="delete" />
-<?php $refer = $_SERVER['HTTP_REFERER'];?>
-<input type="hidden" name="refer" value="<?php echo $refer;?>" />
-   <p><input type="submit" value="確定刪除" /></p>
-<p><a href="<?php echo $refer?>">不刪除，回到前一頁</a></p>
-   </form>
-   </div>
+<div class="wrap">
+    <h2>刪除文章：〈<?php echo $post->post_topic; ?>〉 </h2>
+    <p>您確定要刪除〈<?php echo $post->post_topic?>〉這篇文章嗎？</p>
+    <p>如果刪除的話，這篇文章的所有圖片、附件，也會隨之一同刪除。</p>
+    <form method="post" action="post-delete.php" />
+    <input type="hidden" name="id" value="<?php echo $post->post_id ?>" />
+    <input type="hidden" name="action" value="delete" />
+    <?php $refer = $_SERVER['HTTP_REFERER'];?>
+    <input type="hidden" name="refer" value="<?php echo $refer;?>" />
+    <p><input type="submit" value="確定刪除" /></p>
+    <p><a href="<?php echo $refer?>">不刪除，回到前一頁</a></p>
+    </form>
+</div>
 
-   <?php
+<?php
    }
    admin_footer();
 ?>

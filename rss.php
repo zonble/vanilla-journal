@@ -8,13 +8,15 @@ if (empty($this_volume)) {
 header('Content-type: text/xml; charset=UTF-8', true);
 echo '<?xml version="1.0" encoding="UTF-8"?>';
 ?>
-<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" version="2.0">
-<channel>
-<title><?php echo vjinfo('title'); ?></title>
-<link><?php echo vjinfo('url'); ?></link>
-<description><?php echo vjinfo('description'); ?></description>
-<language>en</language>
-<?php
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0"
+    version="2.0">
+    <channel>
+        <title><?php echo vjinfo('title'); ?></title>
+        <link><?php echo vjinfo('url'); ?></link>
+        <description><?php echo vjinfo('description'); ?></description>
+        <language>en</language>
+        <?php
 if ($this_volume) {
    $query = "SELECT ID, CREATE_DATE, ALIAS, TOPIC, PUBLISHED FROM $vjdb->volumes WHERE ID='$this_volume';";
    $info = $vjdb->get_row($query, ARRAY_A);
@@ -24,20 +26,22 @@ if ($this_volume) {
    if($posts) {
       foreach($posts as $post) {
    ?>
-   <item>
-     <title><?php echo $post['TOPIC']; ?></title>
-     <link><?php echo vjinfo('url')."viewpost.php?id=".$post['ID']; ?></link>
-     <pubDate><?php echo $date; ?></pubDate>
-     <?php if($post['AUTHOR']) { ?>
-     <dc:creator><?php echo $post['AUTHOR']; ?></dc:creator>
-     <?php } ?>
-     <category><?php echo cat_name($post['CAT']); ?></category>
-     <content:encoded><![CDATA[ <?php echo $post['BODY']; ?> ]]></content:encoded>
-   </item>
-   <?
+        <item>
+            <title><?php echo $post['TOPIC']; ?></title>
+            <link><?php echo vjinfo('url')."viewpost.php?id=".$post['ID']; ?></link>
+            <pubDate><?php echo $date; ?></pubDate>
+            <?php if($post['AUTHOR']) { ?>
+            <dc:creator><?php echo $post['AUTHOR']; ?></dc:creator>
+            <?php } ?>
+            <category><?php echo cat_name($post['CAT']); ?></category>
+            <content:encoded>
+                <![CDATA[ <?php echo $post['BODY']; ?> ]]>
+            </content:encoded>
+        </item>
+        <?
       }
    }
 }
       ?>
-</channel>
+    </channel>
 </rss>

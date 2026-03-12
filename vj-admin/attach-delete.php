@@ -16,16 +16,16 @@
 	    $attach->link_html();
 	    echo "</p>";
 	 ?>
-	 <form method="post" action="attach-delete.php">
-         <input type="hidden" name="id" value="<?php echo $id?>" />
-	 <input type="submit" name="submit" value="確定刪除"/>
-<?php if(!$ajax) { ?>
-         <input type="button" name="cancel" value="取消，回到上頁" onclick="history.go(-1);" />;
-<?} else { ?>
-         <input type="hidden" name="ajax" value="1"/>
-<?} ?>   
-	 </form>
-	 <?php
+<form method="post" action="attach-delete.php">
+    <input type="hidden" name="id" value="<?php echo $id?>" />
+    <input type="submit" name="submit" value="確定刪除" />
+    <?php if(!$ajax) { ?>
+    <input type="button" name="cancel" value="取消，回到上頁" onclick="history.go(-1);" />;
+    <?} else { ?>
+    <input type="hidden" name="ajax" value="1" />
+    <?} ?>
+</form>
+<?php
 	 } else {
 	    admin_die("對不起，沒有符合這個 ID 的檔案。");
 	 }

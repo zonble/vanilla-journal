@@ -60,19 +60,19 @@
    }
 ?>
 <div id="infotool" class="tool">
-各項設定：
-<a href="#basic" onclick="vj.info.show_area('info_basic'); return false;">基本設定</a> |
-<a href="#images" onclick="vj.info.show_area('info_detail'); return false;">詳細介紹</a> |
-<a href="#attach" onclick="vj.info.show_area('info_upload'); return false;">圖片、附件上傳相關設定</a> 
+    各項設定：
+    <a href="#basic" onclick="vj.info.show_area('info_basic'); return false;">基本設定</a> |
+    <a href="#images" onclick="vj.info.show_area('info_detail'); return false;">詳細介紹</a> |
+    <a href="#attach" onclick="vj.info.show_area('info_upload'); return false;">圖片、附件上傳相關設定</a>
 </div>
 
 <p>您的期刊資料如下。請在設定完畢之後，按下「修改系統基本設定」按鈕。</p>
 <form method="post" action="info.php" name="infoform" id="infoform">
-<div id="info_basic">
-<h3>基本設定</h3>
-<p>您可以在此設定期刊的名稱、出版單位、地點等基本資訊。</p>
-<table>
-<?php
+    <div id="info_basic">
+        <h3>基本設定</h3>
+        <p>您可以在此設定期刊的名稱、出版單位、地點等基本資訊。</p>
+        <table>
+            <?php
    keyrow('title');
    keyrow('description');
    keyrow('publisher');
@@ -80,32 +80,40 @@
    keyrow('sender');
    keyrow('sender_name');
 ?>
-</table>
-</div>
-<div id="info_detail">
-<h3>詳細介紹</h3>
-<table>
-   <tr><td class="options"><label for="info-credit">版權資訊</label>：</td><td>
-<textarea class="mceEditor" name="credit" id="info-credit" rows="5"><?php echo $info['credit']; ?></textarea>
-   </td></tr>
-   <tr><td class="options"><label for="info-about">期刊簡介</label>：</td><td>
-<textarea class="mceEditor" name="about" id="info-about" rows="5"><?php echo $info['about']; ?></textarea>
-   </td></tr>
-</table>
-</div>
-<div id="info_upload">
-<h3>圖片、附件上傳相關設定</h3>
-<table>
-<?php 
+        </table>
+    </div>
+    <div id="info_detail">
+        <h3>詳細介紹</h3>
+        <table>
+            <tr>
+                <td class="options"><label for="info-credit">版權資訊</label>：</td>
+                <td>
+                    <textarea class="mceEditor" name="credit" id="info-credit"
+                        rows="5"><?php echo $info['credit']; ?></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="options"><label for="info-about">期刊簡介</label>：</td>
+                <td>
+                    <textarea class="mceEditor" name="about" id="info-about"
+                        rows="5"><?php echo $info['about']; ?></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="info_upload">
+        <h3>圖片、附件上傳相關設定</h3>
+        <table>
+            <?php 
    keyrow('isalbum');
    keyrow('image_max');
    keyrow('thumb_max');
    keyrow('image_path');
    keyrow('attach_path');
 ?>
-</table>
-</div>
-   <input type="submit" name="submit" value="修改系統基本設定 »"/>
+        </table>
+    </div>
+    <input type="submit" name="submit" value="修改系統基本設定 »" />
 </form>
 
 <?php

@@ -48,9 +48,9 @@
       $url = $_GET['url'];
 ?>
 <div class="wrap">
-<h2>將 RSS 資料來源加入到資料庫中</h2>
-<p>請輸入您想要加入到資料庫中的 RSS 資料來源的網址</p>
-<?php add_form($url) ?>
+    <h2>將 RSS 資料來源加入到資料庫中</h2>
+    <p>請輸入您想要加入到資料庫中的 RSS 資料來源的網址</p>
+    <?php add_form($url) ?>
 </div>
 <?php
    }
