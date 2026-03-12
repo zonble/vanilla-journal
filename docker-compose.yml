@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    volumes:
+      # 將本地代碼掛載進容器，方便即時修改與查看
+      - .:/var/www/html
+    environment:
+      - TZ=Asia/Taipei
+
+  db:
+    image: mysql:5.5
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: vanilla_journal
+      MYSQL_USER: vj_user
+      MYSQL_PASSWORD: vj_password
+      TZ: Asia/Taipei
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
