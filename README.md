@@ -2,9 +2,9 @@
 
 誰能沒有小時候。
 
-> 🏛 **Web 2.0 歷史遺跡 (Circa 2007)**
+> 🏛 **Web 2.0 歷史遺跡 (Circa 2007) - Final Version 0.256**
 >
-> 這是我在 2007 年於學校工作時，為了系所的電子報所開發的輕量級管理系統。本專案以開源方式釋出，隨著離職後已停止維護。它完美保留了 2000 年代中期（Web 1.0 晚期至 Web 2.0 早期）的 PHP 網頁開發面貌與技術堆疊。
+> 這是我在 2006 年於學校工作時（2004-2007 年），為了系所的電子報所開發的輕量級管理系統。本專案以開源方式釋出，隨著離職後已停止維護。它完美保留了 2000 年代中期（Web 1.0 晚期至 Web 2.0 早期）的 PHP 網頁開發面貌與技術堆疊。
 
 ⚠️ **考古警告：請勿在現代伺服器上執行**
 本專案僅供歷史存檔與研究用途。程式碼包含該年代常見的寫法，且依賴已廢棄的 PHP 函數（例如 `mysql_connect`）。若將其部署在公開且現代的 Web 伺服器上，將面臨極大的安全風險（如 SQL Injection 或 XSS 漏洞）。
@@ -13,6 +13,9 @@
 
 本專案原本託管於 Google Code（該服務亦已走入歷史）：
 [https://code.google.com/archive/p/vanilla-journal](https://code.google.com/archive/p/vanilla-journal)
+
+**關於 Commit 紀錄：**
+本專案在 2007 年開發初期使用的是 Subversion (SVN) 而非 Git。目前的 Git 儲存庫是後來從原始碼匯入的快照，因此並不包含當年的 Commit Log 與開發歷程。
 
 ## 專案簡介
 
@@ -94,6 +97,10 @@ Vanilla Journal 旨在讓使用者能夠輕鬆管理電子報的期數、訂閱�
 3. 在終端機執行 `docker-compose up -d` 啟動伺服器。
 4. 打開瀏覽器訪問：[http://localhost:8080/install/index.php](http://localhost:8080/install/index.php) 執行資料庫安裝。
 5. （非強制的懷舊體驗）安裝完成後，體驗手動將 `install/` 目錄刪除的樂趣。
+
+## 授權方式 (License)
+
+本專案採用 **GNU General Public License (GPL) version 2** 授權釋出。詳細內容請參閱 `license.txt`。
 
 ---
 
