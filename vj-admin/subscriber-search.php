@@ -1,7 +1,7 @@
 <?php
-   include("admin.php");
-   admin_header("搜尋訂戶");
-   $keyword = trim($_POST['keyword']);
+include("admin.php");
+admin_header("搜尋訂戶");
+$keyword = trim($_POST['keyword']);
 ?>
 
 <div class="wrap">
@@ -10,16 +10,16 @@
     <p>
         <?php searchemail_form($keyword); ?>
         <?php
-   if($keyword) {
-      echo "<h3>搜尋關鍵字「".$keyword."」的結果如下：</h3>";
-      echo "<div id=\"subscribe_table\">\n";
-      subscribe_table(2, $keyword);
-      echo "</div>";
-   }
+      if ($keyword) {
+         echo "<h3>搜尋關鍵字「" . $keyword . "」的結果如下：</h3>";
+         echo "<div id=\"subscribe_table\">\n";
+         subscribe_table(2, $keyword);
+         echo "</div>";
+      }
 
-?>
+      ?>
 </div>
 
-<?php 
-   admin_footer();
+<?php
+admin_footer();
 ?>

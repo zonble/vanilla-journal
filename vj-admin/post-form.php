@@ -1,7 +1,7 @@
 <?php
-if($post_status=="add") {
+if ($post_status == "add") {
 } else {
-?>
+    ?>
 <div id="edittool" class="tool">
     編輯工具：
     <a title="文章內容的基本設定" href="#basic" onclick="vj.post.show_area('post_basic'); return false;">基本設定</a> |
@@ -16,7 +16,7 @@ if($post_status=="add") {
 <a name="basic"></a>
 <form method="post" action="<?php echo $target; ?>" name="postform">
     <input type="hidden" name="action" value="<?php echo $action ?>" />
-    <?php if($id) { ?>
+    <?php if ($id) { ?>
     <input type="hidden" name="id" value="<?php echo $id ?>" />
     <?php } ?>
     <div id="post_basic">
@@ -58,59 +58,59 @@ if($post_status=="add") {
                     <td>
                         <select name="post_order" id="post_order">
                             <?php
-   for($i = 0; $i < 20; $i ++ ){
-      echo "<option value=\"".$i."\"";
-      if($i == $post_order ) {
-   echo ' selected="selected" ';
-      }
-      if($i  == 0 ) {
-   echo ">不設定次序";
-      } else {
-   echo ">該單元的第 ".$i." 篇";
-      }
-      echo "</option>";
-   }
-?>
+                            for ($i = 0; $i < 20; $i++) {
+                                echo "<option value=\"" . $i . "\"";
+                                if ($i == $post_order) {
+                                    echo ' selected="selected" ';
+                                }
+                                if ($i == 0) {
+                                    echo ">不設定次序";
+                                } else {
+                                    echo ">該單元的第 " . $i . " 篇";
+                                }
+                                echo "</option>";
+                            }
+                            ?>
                         </select><br />
                         <small>您也可以在<a
-                                href="volume-edit.php?volume=<?php echo $volume?>">管理本期文章</a>頁面上，以拖拉方式快速調整整個單元中的文章次序。</small>
+                                href="volume-edit.php?volume=<?php echo $volume ?>">管理本期文章</a>頁面上，以拖拉方式快速調整整個單元中的文章次序。</small>
                     </td>
                 </tr>
                 <tr>
                     <td class="post_options"><label for="importance">文章重要性</label>：</td>
                     <td><select name="importance" id="importance">
                             <?php
-for ($i = 0; $i < 5; $i++) {
-   echo '<option value="'.$i.'"';
-   if($i == $importance) {
-      echo ' selected="selected"';
-   }
-   echo '>';
-   for ($j =0; $j < $i + 1; $j++) {
-      echo "★";
-   }
-   echo '</option>';
-}
-?>
+                            for ($i = 0; $i < 5; $i++) {
+                                echo '<option value="' . $i . '"';
+                                if ($i == $importance) {
+                                    echo ' selected="selected"';
+                                }
+                                echo '>';
+                                for ($j = 0; $j < $i + 1; $j++) {
+                                    echo "★";
+                                }
+                                echo '</option>';
+                            }
+                            ?>
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <td class="post_options">是否公開：</td>
                     <td>
-                        <input type="radio" name="display" id="dis1" value="1"
-                            <?php if(!(empty($display))) {echo 'checked="checked"';} ?> /><label
-                            for="dis1">是、在網路上公開這篇文章</label><br />
-                        <input type="radio" name="display" id="dis2" value="0"
-                            <?php if(empty($display)) {echo 'checked="checked"';}  ?> /><label
-                            for="dis2">否、不要在網路上公開這篇文章</label>
+                        <input type="radio" name="display" id="dis1" value="1" <?php if (!(empty($display))) {
+                            echo 'checked="checked"';
+                        } ?> /><label for="dis1">是、在網路上公開這篇文章</label><br />
+                        <input type="radio" name="display" id="dis2" value="0" <?php if (empty($display)) {
+                            echo 'checked="checked"';
+                        } ?> /><label for="dis2">否、不要在網路上公開這篇文章</label>
                         <p><small>如果在發行後，發現這篇文章有版權問題之類的問題不適合發行，您又不想刪除文章，您可以選擇「否」，讓這篇文章先暫時隱藏起來。</small></p>
                     </td>
                 </tr>
             </table>
 
             <div class="submit">
-                <input type="submit" value="<?php echo $actionlabel;?>" id="post-submit" />
+                <input type="submit" value="<?php echo $actionlabel; ?>" id="post-submit" />
             </div>
         </div>
 

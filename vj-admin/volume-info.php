@@ -1,94 +1,97 @@
 <?php
-   include("admin.php");
-   $wysiwyg =1;
+include("admin.php");
+$wysiwyg = 1;
 
-   function cat_order_menu($catid=0, $sel= 0){
-      global $vj;
-      echo '<select name="catorder-'.$catid.'" class="catorder" id="catorder-'.$catid.'">';
-      foreach($vj->cats as $cat) {
-	 $i++;
-	 echo '<option value="'.$i.'"';
-	 if($sel == $i) {
-	    echo ' selected="selected"';
-	 }
-	 echo '>';
-	 echo $i;
-	 echo '</option>';
-      }
-      echo "</select>";
-   }
+function cat_order_menu($catid = 0, $sel = 0)
+{
+    global $vj;
+    echo '<select name="catorder-' . $catid . '" class="catorder" id="catorder-' . $catid . '">';
+    foreach ($vj->cats as $cat) {
+        $i++;
+        echo '<option value="' . $i . '"';
+        if ($sel == $i) {
+            echo ' selected="selected"';
+        }
+        echo '>';
+        echo $i;
+        echo '</option>';
+    }
+    echo "</select>";
+}
 
-   function update_volinfo($postvar){
-      global $vjdb;
-      global $vj;
-      if(empty($postvar['alias'])) {
-	 return "<p>錯誤：請輸入期數！</p>";
-      } 
-      $id = $postvar['id'];
-      $alias = $postvar['alias'];
-      $alias_ext = $postvar['alias_ext'];
-      $topic = $postvar['topic'];
-      $topic_desc = $postvar['topic_desc'];
-      $copyright = $postvar['copyright'];
-      $published = $postvar['published'];
-      $year = (int)$postvar['year'];
-      $month = (int)$postvar['month'];
-      $day = (int)$postvar['day'];
-      $hour = (int)$postvar['hour'];
-      $min = (int)$postvar['min'];
-      $sec = (int)$postvar['sec'];
-      $date = $year."-".$month."-".$day." ".$hour.":".$min.":".$sec;
-      $time = date("Y-m-d H:i:s",strtotime($date));
-      $cat_desc_array = array();
-      foreach($vj->cats as $cat){
-	 $cat_key = "cat-".$cat->cat_id;
-	 $cat_postkey = "catdesc-".$cat->cat_id;
-	 $cat_desc_array[$cat_key] = $postvar[$cat_postkey];
-      }
-      $cat_desc = serialize($cat_desc_array);
+function update_volinfo($postvar)
+{
+    global $vjdb;
+    global $vj;
+    if (empty($postvar['alias'])) {
+        return "<p>錯誤：請輸入期數！</p>";
+    }
+    $id = $postvar['id'];
+    $alias = $postvar['alias'];
+    $alias_ext = $postvar['alias_ext'];
+    $topic = $postvar['topic'];
+    $topic_desc = $postvar['topic_desc'];
+    $copyright = $postvar['copyright'];
+    $published = $postvar['published'];
+    $year = (int) $postvar['year'];
+    $month = (int) $postvar['month'];
+    $day = (int) $postvar['day'];
+    $hour = (int) $postvar['hour'];
+    $min = (int) $postvar['min'];
+    $sec = (int) $postvar['sec'];
+    $date = $year . "-" . $month . "-" . $day . " " . $hour . ":" . $min . ":" . $sec;
+    $time = date("Y-m-d H:i:s", strtotime($date));
+    $cat_desc_array = array();
+    foreach ($vj->cats as $cat) {
+        $cat_key = "cat-" . $cat->cat_id;
+        $cat_postkey = "catdesc-" . $cat->cat_id;
+        $cat_desc_array[$cat_key] = $postvar[$cat_postkey];
+    }
+    $cat_desc = serialize($cat_desc_array);
 
-      foreach($vj->cats as $cat){
-	 $cat_key = "cat-".$cat->cat_id;
-	 $cat_postkey = "catorder-".$cat->cat_id;
-	 $cat_order_array[$cat_key] = $postvar[$cat_postkey];
-      }
-      $cat_order = serialize($cat_order_array);
+    foreach ($vj->cats as $cat) {
+        $cat_key = "cat-" . $cat->cat_id;
+        $cat_postkey = "catorder-" . $cat->cat_id;
+        $cat_order_array[$cat_key] = $postvar[$cat_postkey];
+    }
+    $cat_order = serialize($cat_order_array);
 
-      $query = "UPDATE $vjdb->volumes SET ALIAS='$alias', ALIAS_EXT='$alias_ext', TOPIC ='$topic', TOPIC_DESC = '$topic_desc', COPYRIGHT = '$copyright', CREATE_DATE = '$time', PUBLISHED = '$published', CAT_DESC='$cat_desc', CAT_ORDER='$cat_order' WHERE ID = '$id';";
-      $vjdb->query($query);
-      header("Location: volumes.php");
-      /*
-      if($vjdb->query($query)) {
-	 header("Location: volumes.php");
-      } else {
-	 $str = "<h2>錯誤！</h2>\n";
-	 $str .= "<p>在更新時發生資料庫錯誤！</p>";
-	 $vjdb->debug();
-	 admin_die($str, "修改期數設定時發生錯誤");
-      } */
-   }
+    $query = "UPDATE $vjdb->volumes SET ALIAS='$alias', ALIAS_EXT='$alias_ext', TOPIC ='$topic', TOPIC_DESC = '$topic_desc', COPYRIGHT = '$copyright', CREATE_DATE = '$time', PUBLISHED = '$published', CAT_DESC='$cat_desc', CAT_ORDER='$cat_order' WHERE ID = '$id';";
+    $vjdb->query($query);
+    header("Location: volumes.php");
+    /*
+    if($vjdb->query($query)) {
+   header("Location: volumes.php");
+    } else {
+   $str = "<h2>錯誤！</h2>\n";
+   $str .= "<p>在更新時發生資料庫錯誤！</p>";
+   $vjdb->debug();
+   admin_die($str, "修改期數設定時發生錯誤");
+    } */
+}
 
-   $action = $_POST['action'];
-   if($action =="update")  {
-      update_volinfo($_POST);
-   }
-   $id = $_POST['id'];
-   if(empty($id)) $id = $_GET['id'];
-   if(empty($id)) {
-      $str = "<h2>錯誤！</h2>\n";
-      $str .= "<p>請指定您想要修改期刊的代號！</p>";
-      admin_die($str, "修改期數設定時發生錯誤");
-   } 
-   $volinfo = new volume($id);
-   if(empty($volinfo->volume_id)) {
-      $str = "<h2>錯誤！</h2>\n";
-      $str .= "<p>系統中目前沒有您所指定代號的期刊資料！</p>";
-      admin_die($str, "修改期數設定時發生錯誤");
-   } else {
-      $pagetitle ="設定《".vjinfo('title')."》第 ".$volinfo->volume_alias." 期";
-      admin_header();
-      $id = $volinfo->volume_id;
-?>
+$action = $_POST['action'];
+if ($action == "update") {
+    update_volinfo($_POST);
+}
+$id = $_POST['id'];
+if (empty($id))
+    $id = $_GET['id'];
+if (empty($id)) {
+    $str = "<h2>錯誤！</h2>\n";
+    $str .= "<p>請指定您想要修改期刊的代號！</p>";
+    admin_die($str, "修改期數設定時發生錯誤");
+}
+$volinfo = new volume($id);
+if (empty($volinfo->volume_id)) {
+    $str = "<h2>錯誤！</h2>\n";
+    $str .= "<p>系統中目前沒有您所指定代號的期刊資料！</p>";
+    admin_die($str, "修改期數設定時發生錯誤");
+} else {
+    $pagetitle = "設定《" . vjinfo('title') . "》第 " . $volinfo->volume_alias . " 期";
+    admin_header();
+    $id = $volinfo->volume_id;
+    ?>
 
 <div class="wrap">
     <form method="post" action="volume-info.php" name="volform" id="volform" />
@@ -104,7 +107,7 @@
         <a href="post-add.php?volume=<?php echo $id ?>" onclick="return vj.util.exitconfirm();">增加本期內容</a> |
         <a href="volume-edit.php?volume=<?php echo $id ?>" onclick="return vj.util.exitconfirm();">管理本期文章</a> |
         <a href="import.php?volume=<?php echo $id ?>" onclick="return vj.util.exitconfirm();">從 RSS 匯入文章到本期中</a> |
-        <a href="../index.php?volume=<?php echo $id?>" id="viewpage">查看本期網頁</a>
+        <a href="../index.php?volume=<?php echo $id ?>" id="viewpage">查看本期網頁</a>
     </div>
 
     <div id="volume_image">
@@ -161,29 +164,33 @@
             <tr>
                 <td class="options"><label for="year">出刊日期</label>：</td>
                 <?php
-     $date = $volinfo->volume_date;
-     $year = date("Y", $date); 
-     $month = date("m", $date); 
-     $day = date("d", $date); 
-     $hour = date("H", $date); 
-     $min = date("i", $date); 
-     $sec = date("s", $date); 
-  ?>
+                    $date = $volinfo->volume_date;
+                    $year = date("Y", $date);
+                    $month = date("m", $date);
+                    $day = date("d", $date);
+                    $hour = date("H", $date);
+                    $min = date("i", $date);
+                    $sec = date("s", $date);
+                    ?>
                 <td>
                     西元<input type="text" name="year" id="year" size="5" value="<?php echo $year; ?>" />年
                     <select name="month" id="date_month">
-                        <?php for($i = 1; $i < 13; $i++){
-	   echo "<option value=\"$i\"";
-	   if($i == $month) { echo ' selected="selected"';}
-	   echo ">$i</option>\n";
-	} ?>
+                        <?php for ($i = 1; $i < 13; $i++) {
+                                echo "<option value=\"$i\"";
+                                if ($i == $month) {
+                                    echo ' selected="selected"';
+                                }
+                                echo ">$i</option>\n";
+                            } ?>
                     </select> 月
                     <select name="day" id="date_day">
-                        <?php for($i = 1; $i < 32; $i++){
-	   echo "<option value=\"$i\"";
-	   if($i == $day) { echo ' selected="selected"';}
-	   echo ">$i</option>\n";
-	} ?>
+                        <?php for ($i = 1; $i < 32; $i++) {
+                                echo "<option value=\"$i\"";
+                                if ($i == $day) {
+                                    echo ' selected="selected"';
+                                }
+                                echo ">$i</option>\n";
+                            } ?>
                     </select> 日
                     <input type="text" name="hour" id="date_hour" value="<?php echo $hour; ?>" size="2" /> 時
                     <input type="text" name="min" id="date_min" value="<?php echo $min; ?>" size="2" /> 分
@@ -195,10 +202,12 @@
                 <td class="options">是否已經上線：</td>
                 <td>
                     <?php $published = $volinfo->volume_published; ?>
-                    <input type="radio" name="published" id="pub1" value="1"
-                        <?php if(!(empty($published))) {echo 'checked="checked"';} ?> /><label for="pub1">是、已經上線</label>
-                    <input type="radio" name="published" id="pub2" value="0"
-                        <?php if(empty($published)) {echo 'checked="checked"';}  ?> /><label for="pub2">否、尚未上線</label>
+                    <input type="radio" name="published" id="pub1" value="1" <?php if (!(empty($published))) {
+                            echo 'checked="checked"';
+                        } ?> /><label for="pub1">是、已經上線</label>
+                    <input type="radio" name="published" id="pub2" value="0" <?php if (empty($published)) {
+                            echo 'checked="checked"';
+                        } ?> /><label for="pub2">否、尚未上線</label>
                     <p><small>如果您還沒有把所有文章都傳上網路的話，請先選擇「否」，那麼文章就不會顯示在網路上。</small></p>
                     <p><small>但如果已經完成，記得來這裡，勾選成「是」。</small></p>
                 </td>
@@ -210,24 +219,24 @@
         <p>您可以在此設定本期各文章單元應該在版面上出現的順序，除了用下拉選單調整外，也可以使用直接拖拉的方式，改變順序（不過，某些瀏覽器目前尚不支援拖拉功能），您也可以針對本期某單元文章加以特別說明。修改完之後請記得按一下「設定完成」。
         </p>
         <?php
-   if($vj->cats){
-      $i = 0;
-      foreach($vj->cats as $cat){
-	 $i++;
-	 echo '<div id="vol-cat-'.$i.'"><table>';
-	 echo "<tr>";
-	 echo '<td class="options">';
-	 echo '<label for="catdesc-'.$cat->cat_id.'">';
-	 echo '「'.$cat->cat_name."」<br />的額外介紹</label>：<br />";
-	 echo '順序：';
-	 cat_order_menu($cat->cat_id, $cat->cat_vol_order);
-	 echo '</td><td>';
-	 echo '<textarea cols="80" class="ext" rows="3" id="catdesc-'.$cat->cat_id.'" name="catdesc-'.$cat->cat_id.'">'.$cat->cat_vol_desc.'</textarea></td>';
-	 echo "</tr>";
-	 echo "</table></div>";
-      }
-   }
-?>
+            if ($vj->cats) {
+                $i = 0;
+                foreach ($vj->cats as $cat) {
+                    $i++;
+                    echo '<div id="vol-cat-' . $i . '"><table>';
+                    echo "<tr>";
+                    echo '<td class="options">';
+                    echo '<label for="catdesc-' . $cat->cat_id . '">';
+                    echo '「' . $cat->cat_name . "」<br />的額外介紹</label>：<br />";
+                    echo '順序：';
+                    cat_order_menu($cat->cat_id, $cat->cat_vol_order);
+                    echo '</td><td>';
+                    echo '<textarea cols="80" class="ext" rows="3" id="catdesc-' . $cat->cat_id . '" name="catdesc-' . $cat->cat_id . '">' . $cat->cat_vol_desc . '</textarea></td>';
+                    echo "</tr>";
+                    echo "</table></div>";
+                }
+            }
+            ?>
     </div>
     </form>
     <br clear="all" />
@@ -235,6 +244,6 @@
 </div>
 
 <?php
-   }
-   admin_footer();
+}
+admin_footer();
 ?>

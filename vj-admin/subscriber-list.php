@@ -1,5 +1,5 @@
 <?php
-if($_GET['ajax']) {
+if ($_GET['ajax']) {
    include("admin.php");
    header("Content-type: text/html; charset=utf-8");
    $opt = $_GET['opt'];

@@ -1,10 +1,10 @@
-<?php 
+<?php
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
-header("Content-type: text/html; charset=utf-8"); 
+header("Content-type: text/html; charset=utf-8");
 ?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -18,8 +18,8 @@ header("Content-type: text/html; charset=utf-8");
     <title><?php echo $pagetitle; ?></title>
     <link rel="stylesheet" type="text/css" media="screen" href="ajax.css" />
     </script>
-    <script type="text/javascript" src="<?php echo vjinfo('url');?>vj-script/prototype.js"></script>
-    <script type="text/javascript" src="<?php echo vjinfo('url');?>vj-script/scriptaculous.js"></script>
+    <script type="text/javascript" src="<?php echo vjinfo('url'); ?>vj-script/prototype.js"></script>
+    <script type="text/javascript" src="<?php echo vjinfo('url'); ?>vj-script/scriptaculous.js"></script>
     <script type="text/javascript" src="admin-browser.js"></script>
     <script type="text/javascript" src="admin.js"></script>
 </head>

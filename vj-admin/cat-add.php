@@ -1,6 +1,6 @@
 <?php
-   include("admin.php");
-   admin_header("新增單元");
+include("admin.php");
+admin_header("新增單元");
 ?>
 <div class="wrap">
     <form method="post" action="cats.php">
@@ -10,6 +10,6 @@
             <?php cats_form("", "", "新增單元", "add-cat"); ?>
 </div>
 
-<?php 
-   admin_footer();
+<?php
+admin_footer();
 ?>

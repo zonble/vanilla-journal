@@ -1,6 +1,6 @@
 <?php
-   include("admin.php");
-   admin_header("說明文件");
+include("admin.php");
+admin_header("說明文件");
 ?>
 <div class="wrap">
     <h2>期刊網站暨發報系統簡易使用說明</h2>
@@ -51,6 +51,6 @@
 
     </div>
 </div>
-<?php 
-   admin_footer();
+<?php
+admin_footer();
 ?>

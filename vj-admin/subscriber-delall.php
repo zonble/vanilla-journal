@@ -1,20 +1,20 @@
 <?php
-   include("admin.php");
-   admin_header("刪除所有沒有通過認證的訂戶信箱");
+include("admin.php");
+admin_header("刪除所有沒有通過認證的訂戶信箱");
 
-   $submit = $_POST['submit'];
-   $action = $_POST['action'];
-   if($submit && $action == 'delall') { ?>
+$submit = $_POST['submit'];
+$action = $_POST['action'];
+if ($submit && $action == 'delall') { ?>
 <div id="wrap">
     <h2>刪除所有沒有通過認證的訂戶信箱</h2>
     <?php
-      $query = "DELETE FROM $vjdb->subscribers WHERE VERIFIED = '0'";
-      if($vjdb->query($query)) {
-	 echo "<p>刪除完畢！</p>";
-      } else {
-	 echo "<p>在刪除時發生錯誤！</p>";
-      }
-   ?>
+        $query = "DELETE FROM $vjdb->subscribers WHERE VERIFIED = '0'";
+        if ($vjdb->query($query)) {
+            echo "<p>刪除完畢！</p>";
+        } else {
+            echo "<p>在刪除時發生錯誤！</p>";
+        }
+        ?>
     <p>回到<a href="subscribers.php">訂戶資料管理頁面</a>。</p>
 </div>
 <?php } else { ?>
@@ -28,6 +28,6 @@
     </form>
 </div>
 <?
-   }
-   admin_footer();
+}
+admin_footer();
 ?>
